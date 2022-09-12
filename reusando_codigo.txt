@@ -1,0 +1,50 @@
+function getFechaActual (){
+        let fecha_actual = new Date()
+        console.log(fecha_actual.getDay())
+        console.log(fecha_actual.getDate())
+        console.log(fecha_actual.getMonth())
+        console.log(fecha_actual.getFullYear())
+        var fech = new Date()
+        var dia_actual = fech.getDate().toString()
+        var mes_actual = (fech.getMonth() + 1).toString()
+        var mes_actual_01 = fech.getMonth()
+        var anio_actual = fech.getFullYear()
+
+        if(mes_actual.length <= 1){
+            mes_actual = "0" + mes_actual
+        } 
+
+        if(dia_actual.length <=1 ){
+            dia_actual = "0" + dia_actual
+        }
+        let fecha_hoy = anio_actual + "-" + mes_actual + "-" + dia_actual
+
+        let dia_semana = ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado']
+        console.log(dia_semana[fecha_actual.getDay()])
+
+        let mes_year = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 
+        'Octubre', 'Noviembre', 'Diciembre']
+        let mes_year_numeric = ['01', '02', '03', '04', '05', '06', '06', '08', '09', 
+        '10', '11', '12']
+        console.log(mes_year[fecha_actual.getMonth()])
+
+        console.log(`Fecha actual: ${dia_semana[fecha_actual.getDay()]}, ${fecha_actual.getDate()} de ${mes_year[fecha_actual.getMonth()]} de 
+        ${fecha_actual.getFullYear()}`)
+
+        console.log(`Fecha actual: ${anio_actual}-${mes_year_numeric[mes_actual_01]}-${dia_actual}`)
+        console.log(fecha_hoy)
+
+        var fecha_usuario = document.getElementById('fecha_usuario').value
+        
+        console.log(`Fecha usuario: ${fecha_usuario}`)
+        
+        if (fecha_usuario > fecha_hoy){
+            console.log("la fecha del usuario es mayor")
+        }else if(fecha_usuario == fecha_hoy){
+            console.log("las fechas son iguales")
+        }else if(fecha_usuario < fecha_hoy){
+            console.log("Alerta: la fecha del usuario es anterior a el día de hoy")
+            
+        }
+        
+    }
