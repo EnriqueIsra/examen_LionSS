@@ -15,8 +15,8 @@ return new class extends Migration
     {
         Schema::create('salas', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('description');
+            $table->string('name'); // variable para guardar el nombre de la sala, dato tipo string
+            $table->string('description'); // variable para guardar una descripcion, tipo string
             $table->timestamps();
         });
     }
