@@ -1,4 +1,4 @@
-import axios from "axios";
+import axios from "axios";  /* componente para editar una junta */
 import React, { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import swal from 'sweetalert'
@@ -14,7 +14,7 @@ const EditJunta = () => {
     const navigate = useNavigate()
     const { id } = useParams()
 
-    const update = async (e) => {
+    const update = async (e) => { /* función update, utilizando axios.put, el endpoint y el id de la junta */
         e.preventDefault()
         await axios.put(`${endpoint}${id}`, {
             name: name,
@@ -27,7 +27,8 @@ const EditJunta = () => {
     }
 
     useEffect(() => {
-        const getJuntaById = async () => {
+        const getJuntaById = async () => { /* funcion que nos trae los datos de la junta seleccionada
+        a traves de axios.get, el endpoint y el id de la jutna */
             const response = await axios.get(`${endpoint}${id}`)
             setName(response.data.name)
             setRoom(response.data.room)
@@ -38,6 +39,8 @@ const EditJunta = () => {
         getJuntaById()
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
+
+    /* todo lo que sigue desde este punto es igual al componentepara crear una junta también desde el mismo punto */
 
     var btn_guardar_junta = document.getElementById('btn_guardar_junta')
     let Salas =["Sala 1"]

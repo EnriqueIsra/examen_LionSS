@@ -37,22 +37,22 @@
   }
 }
 
-.App input{
+.App input{ /* algunos estilos generales de los input */
   margin: 0px auto;
   border-color: black;
   border-width: 1px;
   border-style: solid;
 }
-.App select{
+.App select{ /* estilos de la etiqueta select */
   margin: 0px auto;
   border-color: black;
   border-width: 1px;
   border-style: solid;
 }
-.App label{
+.App label{ /* estilos de label */
   color: lightgray;
 }
-.App form{
+.App form{ /* estilos generales del form */
   padding: 20px;
   border-radius: 15px;
 }

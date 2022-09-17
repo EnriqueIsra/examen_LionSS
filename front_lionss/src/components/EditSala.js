@@ -1,8 +1,8 @@
-import axios from "axios";
+import axios from "axios";      /* componente para editar una sala */
 import React, { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 
-const endpoint = 'http://localhost:8000/api/sala/'
+const endpoint = 'http://localhost:8000/api/sala/' /* api con el prefijo sala para hacer la edicion de esta */
 
 const EditSala = () => {
     const [name, setName] = useState('')
@@ -10,9 +10,9 @@ const EditSala = () => {
     const navigate = useNavigate()
     const { id } = useParams()
 
-    const update = async (e) => {
+    const update = async (e) => { /* fi}uncion update para actualizar un registro */
         e.preventDefault()
-        await axios.put(`${endpoint}${id}`, {
+        await axios.put(`${endpoint}${id}`, { /* utilizamos axios.put para hacer una modificacion a los valores actuales */
             name: name,
             description: description
         })
@@ -20,13 +20,13 @@ const EditSala = () => {
     }
 
     useEffect(() => {
-        const getSalaById = async () => {
-            const response = await axios.get(`${endpoint}${id}`)
+        const getSalaById = async () => { /* funcion que nos trae los datos actuales de la sala seleccionada */
+            const response = await axios.get(`${endpoint}${id}`) /* utilizando axios.get con el endpoint y el id */
             setName(response.data.name)
             setDescription(response.data.description)
         }
         getSalaById()
-        // eslint-disable-next-line react-hooks/exhaustive-deps
+        
     }, [])
 
     return (
@@ -34,6 +34,8 @@ const EditSala = () => {
             <h3>Editar sala</h3>
             <form
             style={{backgroundColor: '#393d51', borderStyle: 'groove', borderWidth: '5px', borderColor: '#c59b21', width:'400px',  margin: '0px auto'}}
+            /* estilos del formulario,
+            esta parte del coomponente es igual al de crear sala */
             onSubmit={update}>
                 <div className='mb-3'>
                     <label className='form-label' >Nombre</label>
